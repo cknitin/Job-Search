@@ -6,6 +6,8 @@ Perfect 👍 — let’s turn the **American Water microservices architecture** 
 
 ---
 
+![alt text]([http://url/to/img.png](https://github.com/cknitin/Job-Search/blob/main/How%20American%20Water%20Became%20Real-Time%20with%20Azure.png))
+
 ## 1️⃣ The Problem
 
 American Water is a company that supplies clean water to millions of homes.
