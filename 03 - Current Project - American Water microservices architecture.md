@@ -127,4 +127,4 @@ We designed a **microservices-based, event-driven architecture** using **.NET Co
 
 ---
 
-Do you want me to now **draw this story into a simple flow diagram** (sensor → Event Hub → Functions → Event Grid → Service Bus → Apps) so you can show both the story and the architecture visually?
+
