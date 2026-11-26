@@ -1,0 +1,8 @@
+[
+  {"id": "demo:1", "source": "demo", "title": "Solution Architect - .NET & Azure", "company": "Acme Health",
+   "location": "Remote - India", "url": "https://example.com/jobs/1", "posted": "", "apply_type": "link",
+   "description": "We need a Solution Architect with 12+ years in C#, ASP.NET Core and Azure. Design microservices, REST API design, event-driven architecture, PostgreSQL, CI/CD with Azure DevOps. Client stakeholder management and estimation."},
+  {"id": "demo:2", "source": "demo", "title": "Cloud Architect (AWS, Java)", "company": "OtherCo",
+   "location": "Bengaluru", "url": "https://example.com/jobs/2", "posted": "", "apply_type": "link",
+   "description": "AWS, Java, Spring Boot, Terraform, EKS."}
+]

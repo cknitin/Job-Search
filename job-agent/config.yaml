@@ -1,0 +1,43 @@
+# ---------- Job Agent configuration ----------
+llm:
+  provider: anthropic            # "anthropic" or "mock" (offline test mode)
+  model: claude-sonnet-5-5
+  api_key_env: ANTHROPIC_API_KEY
+
+candidate:
+  name: "Your Name"      # overridden by CANDIDATE_NAME secret
+  email: "you@example.com"   # overridden by CANDIDATE_EMAIL secret
+  phone: "+91-00000-00000"   # overridden by CANDIDATE_PHONE secret
+  location: "Noida, India"
+  linkedin: "https://linkedin.com/in/your-profile"   # CANDIDATE_LINKEDIN
+  notice_period: "30 days"
+  current_ctc: ""                # left blank on purpose; filled manually if a form asks
+  expected_ctc: ""
+
+search:
+  titles: ["Solution Architect", "Software Architect", "Technical Architect", ".NET Architect", "Cloud Architect", "Enterprise Architect", "Azure Architect"]
+  must_have_any: [".NET", "C#", "Azure", "microservices", "architecture"]
+  exclude_words: ["junior", "intern", "fresher", "java only"]
+  locations: ["India", "Remote", "Noida", "Delhi", "Gurugram", "Gurgaon", "NCR", "Bengaluru", "Hyderabad", "Pune"]
+  remote_ok: true
+  max_age_days: 14
+
+sources:
+  remotive: true                 # free public API, remote jobs
+  adzuna:                        # free key at developer.adzuna.com (supports India: country=in)
+    enabled: false
+    app_id_env: ADZUNA_APP_ID
+    app_key_env: ADZUNA_APP_KEY
+    country: in
+  greenhouse_boards: ["stripe", "gitlab"]   # company slugs from boards.greenhouse.io/<slug>
+  lever_companies: []                       # slugs from jobs.lever.co/<slug>
+
+matching:
+  min_keyword_score: 0.25        # cheap pre-filter before spending LLM tokens
+  min_fit_score: 70              # LLM fit score 0-100 required to tailor/apply
+  max_jobs_per_run: 25
+
+apply:
+  mode: review                   # review = fill form, stop before submit | auto = submit | pack = files only
+  daily_limit: 10
+  headless: false
