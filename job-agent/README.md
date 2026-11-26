@@ -11,6 +11,8 @@ Four agents in a pipeline:
 
 A SQLite tracker dedupes jobs across runs, enforces a daily limit, and exports `data/tracker.csv`.
 
+> **New here? Start with [HOW-TO-RUN.md](HOW-TO-RUN.md)**: step-by-step setup for GitHub Actions, your laptop, or a free cloud VM.
+
 ## Setup (10 min)
 ```bash
 pip install -r requirements.txt
