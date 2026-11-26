@@ -1,0 +1,62 @@
+name: job-agent
+
+on:
+  schedule:
+    - cron: "30 3 * * *"      # 03:30 UTC = 09:00 IST daily
+  workflow_dispatch:           # "Run workflow" button for manual runs
+
+permissions:
+  contents: write              # lets the run commit the tracker DB back
+
+concurrency: job-agent
+
+defaults:
+  run:
+    working-directory: job-agent
+
+jobs:
+  run:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+          cache-dependency-path: job-agent/requirements.txt
+
+      - run: pip install -r requirements.txt
+
+      - name: Hunt + prepare application packs
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          ADZUNA_APP_ID: ${{ secrets.ADZUNA_APP_ID }}
+          ADZUNA_APP_KEY: ${{ secrets.ADZUNA_APP_KEY }}
+          CANDIDATE_NAME: ${{ secrets.CANDIDATE_NAME }}
+          CANDIDATE_EMAIL: ${{ secrets.CANDIDATE_EMAIL }}
+          CANDIDATE_PHONE: ${{ secrets.CANDIDATE_PHONE }}
+          CANDIDATE_LINKEDIN: ${{ secrets.CANDIDATE_LINKEDIN }}
+          APPLY_MODE: pack     # no browser in CI; change to auto only after testing locally
+        run: python run.py all
+
+      - name: Upload tailored resumes
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: applications-${{ github.run_number }}
+          path: |
+            job-agent/output/
+            job-agent/data/tracker.csv
+          if-no-files-found: ignore
+          retention-days: 30
+
+      - name: Save tracker (dedupe across runs)
+        if: always()
+        run: |
+          git config user.name "job-agent-bot"
+          git config user.email "job-agent-bot@users.noreply.github.com"
+          git add data/jobs.db data/tracker.csv || true
+          git diff --cached --quiet || git commit -m "tracker: run ${{ github.run_number }}"
+          git push

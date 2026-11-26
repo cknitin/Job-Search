@@ -1,0 +1,76 @@
+# MASTER RESUME = single source of truth (built from "00 - Resume - Nitin Kumar ... .md").
+# The tailoring agent may only reorder, rephrase and select from these facts. It never invents.
+
+headline: "Solution Architect | .NET & Azure | Microservices & Cloud-Native"
+summary: >
+  Enterprise Architect with 17+ years architecting and delivering mid to large-scale enterprise
+  applications on Microsoft and Azure platforms. Expertise in microservices architecture, .NET Core
+  and cloud-native development, with proven leadership in technical solutioning, mentoring and CI/CD
+  across cross-functional, global teams.
+
+skills:
+  cloud_architecture: ["Azure Functions", "Logic Apps", "App Services", "API Management", "Service Bus",
+                       "Event Grid", "Azure Kubernetes Service (AKS)", "Azure DevOps", "Key Vault", "Azure Storage"]
+  architecture: ["Microservices", "Event-driven architecture", "Cloud-native", "RESTful APIs", "Design Patterns",
+                 "Enterprise Application Architecture", "UML"]
+  languages: [".NET Core", "C#", "OOP", "Node.js", "Angular", "React", "SQL Server", "PL/SQL"]
+  security: ["OAuth 2.0", "JWT", "Azure Active Directory", "HIPAA compliance", "FHIR APIs"]
+  practices: ["CI/CD", "TDD/BDD", "Unit Testing", "Static Code Analysis", "Code Reviews", "CAB processes"]
+  tools: ["Visual Studio", "Git", "Docker", "Kubernetes", "NUnit", "NCover"]
+  leadership: ["Technical solutioning", "Mentoring", "Team leadership", "Architectural reviews"]
+
+experience:
+  - company: "MCN Solutions Private Ltd"
+    title: "Tech Lead | Senior Enterprise Architect"
+    start: "Oct 2012"
+    end: "Present"
+    location: "Noida"
+    bullets:
+      - "Architected and delivered 15+ mid to large-scale enterprise applications serving 500K+ users with 99.9% uptime."
+      - "Led microservices transformation of legacy monoliths, reducing deployment time by 75%."
+      - "Designed Azure-native solutions using Azure Functions, App Services and AKS, achieving 40% cost optimization."
+      - "Provided technical leadership to 20+ developers across multiple teams, ensuring on-time, quality delivery."
+      - "Established CI/CD pipelines in Azure DevOps, cutting release cycles from 2 weeks to 2 days."
+      - "Drove API Management strategy, standardizing API governance across 25+ microservices."
+      - "Implemented Event Grid and Service Bus messaging patterns for real-time data processing."
+      - "Set static code analysis and unit testing standards, achieving 90%+ code coverage."
+      - "American Water (VAMP): architected microservices transformation of an infrastructure platform for 100K+ users on AKS, Azure Functions, Service Bus and API Management; reduced infrastructure costs by 45% with 99.99% uptime."
+      - "American Water: designed event-driven architecture with Service Bus and Event Grid for real-time asset monitoring, improving monitoring performance by 50%."
+      - "Comcast: led a centralized Azure API Management solution for 25+ microservices with OAuth 2.0/JWT and Azure AD, cutting API response time by 35%."
+      - "Comcast: migrated 8 legacy systems to cloud-native Azure applications with zero downtime; improved deployment frequency by 60%."
+      - "IntuitiveEMR: architected a HIPAA-compliant serverless pipeline (Azure Functions, Event Grid, Logic Apps, FHIR APIs) handling 2M+ healthcare transactions daily, reducing processing latency by 70%."
+      - "Mentored 25+ developers in enterprise architecture and Azure best practices; improved code quality metrics by 35%."
+      - "Led CAB processes, architectural reviews and deployment coordination for enterprise releases."
+  - company: "InfoAxon Technologies Private Ltd"
+    title: "Software Engineer"
+    start: "Sep 2011"
+    end: "Oct 2012"
+    location: "Noida"
+    bullets:
+      - "Designed cloud-native applications on Microsoft platforms, contributing to enterprise architecture initiatives."
+      - "Implemented Service Bus messaging patterns and RESTful APIs using .NET Framework and SQL Server."
+      - "Contributed to architectural standards and best practices."
+  - company: "Chetu India Private Limited"
+    title: "Software Engineer"
+    start: "Feb 2011"
+    end: "Apr 2011"
+    location: "Noida"
+    bullets:
+      - "Developed enterprise web applications using .NET Framework, applying design patterns and OOP principles."
+  - company: "RKS Software & Web Solutions"
+    title: "Software Engineer"
+    start: "Nov 2007"
+    end: "Feb 2011"
+    location: "Meerut"
+    bullets:
+      - "Developed enterprise applications with Microsoft technologies and SQL Server, including database design and stored procedures."
+
+education:
+  - degree: "Master of Computer Applications (MCA)"
+    school: "U.P. Technical University, Lucknow"
+    year: "First Class"
+  - degree: "Bachelor of Computer Applications (BCA)"
+    school: "C.C.S. University, Meerut"
+    year: "First Class"
+
+certifications: []

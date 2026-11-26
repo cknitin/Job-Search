@@ -1,0 +1,5 @@
+output/
+__pycache__/
+data/demo.db
+data/demo_tracker.csv
+data/run.log
