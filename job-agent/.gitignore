@@ -1,3 +1,10 @@
+.venv/
+config.local.yaml
+profile.local.yaml
+data/*.xlsx
+data/followups.json
+jobs_inbox/*
+!jobs_inbox/_example.txt
 output/
 __pycache__/
 data/demo.db

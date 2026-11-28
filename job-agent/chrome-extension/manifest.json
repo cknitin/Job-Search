@@ -1,0 +1,13 @@
+{
+  "manifest_version": 3,
+  "name": "Job Agent Copier",
+  "version": "1.0.0",
+  "description": "Copy the job you are looking at on LinkedIn, Naukri or Indeed, then paste it into Job Agent. Works only when you click.",
+  "content_scripts": [
+    {
+      "matches": ["https://*.linkedin.com/*", "https://*.naukri.com/*", "https://*.indeed.com/*"],
+      "js": ["content.js"],
+      "run_at": "document_idle"
+    }
+  ]
+}

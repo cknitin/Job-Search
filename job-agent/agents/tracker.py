@@ -3,6 +3,9 @@ import csv
 import json
 import sqlite3
 from datetime import date
+from pathlib import Path
+
+from .report import write_excel
 
 
 class Tracker:
@@ -14,7 +17,9 @@ class Tracker:
             folder TEXT, notes TEXT, found_on TEXT, applied_on TEXT)""")
 
     def seen(self, job_id):
-        return self.db.execute("SELECT 1 FROM jobs WHERE id=?", (job_id,)).fetchone() is not None
+        # Keyword rejections are free to re-check, so a changed resume or config applies to them again.
+        return self.db.execute("SELECT 1 FROM jobs WHERE id=? AND status != 'skipped-keywords'",
+                               (job_id,)).fetchone() is not None
 
     def upsert(self, job, **kw):
         row = {"id": job["id"], "title": job["title"], "company": job["company"], "location": job["location"],
@@ -37,15 +42,35 @@ class Tracker:
     def applied_today(self):
         return self.db.execute("SELECT COUNT(*) FROM jobs WHERE applied_on=?", (date.today().isoformat(),)).fetchone()[0]
 
+    def get(self, job_id):
+        cur = self.db.execute("SELECT * FROM jobs WHERE id=?", (job_id,))
+        row = cur.fetchone()
+        return dict(zip([c[0] for c in cur.description], row)) if row else None
+
+    def visible(self):
+        """Jobs worth showing: everything except automatic rejections."""
+        cur = self.db.execute("SELECT * FROM jobs WHERE status NOT LIKE 'skipped%' AND status != 'hidden' "
+                              "ORDER BY found_on DESC, fit_score DESC")
+        cols = [c[0] for c in cur.description]
+        return [dict(zip(cols, r)) for r in cur.fetchall()]
+
     def ready(self):
         cur = self.db.execute("SELECT * FROM jobs WHERE status='ready' ORDER BY fit_score DESC")
         cols = [c[0] for c in cur.description]
         return [dict(zip(cols, r)) for r in cur.fetchall()]
 
+    def excel_path(self, csv_path):
+        csv_path = Path(csv_path)
+        return csv_path.with_name(csv_path.stem.replace("tracker", "job_applications") + ".xlsx")
+
     def export(self, path="data/tracker.csv"):
+        """Write the CSV and the Excel tracker next to it."""
         cur = self.db.execute("SELECT * FROM jobs ORDER BY found_on DESC, fit_score DESC")
         with open(path, "w", newline="", encoding="utf-8") as f:
             w = csv.writer(f)
             w.writerow([c[0] for c in cur.description])
-            w.writerows(cur.fetchall())
+            rows = cur.fetchall()
+            w.writerows(rows)
+        names = [c[0] for c in cur.description]
+        write_excel([dict(zip(names, r)) for r in rows], self.excel_path(path))
         return path

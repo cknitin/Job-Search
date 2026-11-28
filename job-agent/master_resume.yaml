@@ -1,12 +1,14 @@
 # MASTER RESUME = single source of truth (built from "00 - Resume - Nitin Kumar ... .md").
 # The tailoring agent may only reorder, rephrase and select from these facts. It never invents.
+# Edit this file whenever your experience changes. Every fact here can appear in a resume you send,
+# so remove anything you could not explain in an interview.
 
 headline: "Solution Architect | .NET & Azure | Microservices & Cloud-Native"
 summary: >
-  Enterprise Architect with 17+ years architecting and delivering mid to large-scale enterprise
-  applications on Microsoft and Azure platforms. Expertise in microservices architecture, .NET Core
-  and cloud-native development, with proven leadership in technical solutioning, mentoring and CI/CD
-  across cross-functional, global teams.
+  Enterprise Architect with 17+ years of experience architecting and delivering mid to large-scale
+  enterprise applications on Microsoft and Azure platforms. Expertise in microservices architecture,
+  .NET Core and cloud-native development, with proven leadership in technical solutioning, mentoring
+  and CI/CD across cross-functional, global teams.
 
 skills:
   cloud_architecture: ["Azure Functions", "Logic Apps", "App Services", "API Management", "Service Bus",
@@ -15,8 +17,9 @@ skills:
                  "Enterprise Application Architecture", "UML"]
   languages: [".NET Core", "C#", "OOP", "Node.js", "Angular", "React", "SQL Server", "PL/SQL"]
   security: ["OAuth 2.0", "JWT", "Azure Active Directory", "HIPAA compliance", "FHIR APIs"]
-  practices: ["CI/CD", "TDD/BDD", "Unit Testing", "Static Code Analysis", "Code Reviews", "CAB processes"]
-  tools: ["Visual Studio", "Git", "Docker", "Kubernetes", "NUnit", "NCover"]
+  practices: ["CI/CD", "TDD/BDD", "Unit Testing", "Static Code Analysis", "Code Reviews", "Version Control",
+              "CAB processes"]
+  tools: ["Visual Studio", "Git", "Docker", "Kubernetes", "NUnit", "NCover", "CruiseControl", "FxCop"]
   leadership: ["Technical solutioning", "Mentoring", "Team leadership", "Architectural reviews"]
 
 experience:
@@ -27,20 +30,17 @@ experience:
     location: "Noida"
     bullets:
       - "Architected and delivered 15+ mid to large-scale enterprise applications serving 500K+ users with 99.9% uptime."
-      - "Led microservices transformation of legacy monoliths, reducing deployment time by 75%."
-      - "Designed Azure-native solutions using Azure Functions, App Services and AKS, achieving 40% cost optimization."
-      - "Provided technical leadership to 20+ developers across multiple teams, ensuring on-time, quality delivery."
-      - "Established CI/CD pipelines in Azure DevOps, cutting release cycles from 2 weeks to 2 days."
-      - "Drove API Management strategy, standardizing API governance across 25+ microservices."
+      - "Led microservices transformation of legacy monolithic applications, reducing deployment time by 75%."
+      - "Designed and implemented Azure-native solutions using Azure Functions, App Services and AKS, achieving 40% cost optimization."
+      - "Provided technical leadership to 20+ developers across multiple teams, ensuring on-time, quality delivery of critical projects."
+      - "Established CI/CD pipelines in Azure DevOps, cutting release cycle time from 2 weeks to 2 days."
+      - "Drove API Management strategy, standardizing enterprise API governance across 25+ microservices."
       - "Implemented Event Grid and Service Bus messaging patterns for real-time data processing."
-      - "Set static code analysis and unit testing standards, achieving 90%+ code coverage."
-      - "American Water (VAMP): architected microservices transformation of an infrastructure platform for 100K+ users on AKS, Azure Functions, Service Bus and API Management; reduced infrastructure costs by 45% with 99.99% uptime."
-      - "American Water: designed event-driven architecture with Service Bus and Event Grid for real-time asset monitoring, improving monitoring performance by 50%."
-      - "Comcast: led a centralized Azure API Management solution for 25+ microservices with OAuth 2.0/JWT and Azure AD, cutting API response time by 35%."
-      - "Comcast: migrated 8 legacy systems to cloud-native Azure applications with zero downtime; improved deployment frequency by 60%."
-      - "IntuitiveEMR: architected a HIPAA-compliant serverless pipeline (Azure Functions, Event Grid, Logic Apps, FHIR APIs) handling 2M+ healthcare transactions daily, reducing processing latency by 70%."
-      - "Mentored 25+ developers in enterprise architecture and Azure best practices; improved code quality metrics by 35%."
-      - "Led CAB processes, architectural reviews and deployment coordination for enterprise releases."
+      - "Established static code analysis and unit testing standards, achieving 90%+ code coverage."
+      - "Mentored 25+ developers in enterprise architecture patterns and Azure best practices; improved code quality metrics by 35%."
+      - "Conducted technical forums and knowledge-sharing sessions for 100+ team members."
+      - "Established coding standards and peer programming practices, and led architectural reviews and design pattern workshops."
+      - "Led CAB processes and deployment coordination for enterprise releases."
   - company: "InfoAxon Technologies Private Ltd"
     title: "Software Engineer"
     start: "Sep 2011"
@@ -48,8 +48,9 @@ experience:
     location: "Noida"
     bullets:
       - "Designed cloud-native applications on Microsoft platforms, contributing to enterprise architecture initiatives."
-      - "Implemented Service Bus messaging patterns and RESTful APIs using .NET Framework and SQL Server."
-      - "Contributed to architectural standards and best practices."
+      - "Developed RESTful APIs using .NET Framework and SQL Server, with Service Bus messaging patterns."
+      - "Built automated workflows for business process optimization and implemented secure configuration management."
+      - "Collaborated with cross-functional teams to deliver mission-critical business applications."
   - company: "Chetu India Private Limited"
     title: "Software Engineer"
     start: "Feb 2011"
@@ -63,14 +64,43 @@ experience:
     end: "Feb 2011"
     location: "Meerut"
     bullets:
-      - "Developed enterprise applications with Microsoft technologies and SQL Server, including database design and stored procedures."
+      - "Developed enterprise applications with Microsoft technologies and SQL Server."
+      - "Handled database design and stored procedure development, applying design patterns in web applications."
+
+projects:
+  - name: "American Water (VAMP)"
+    domain: "Infrastructure / Water Utilities"
+    technologies: ".NET Core 6, Azure AKS, Azure Functions, Service Bus, API Management, SQL Server 2019"
+    bullets:
+      - "Architected the microservices transformation of a legacy monolithic infrastructure platform serving 100K+ users."
+      - "Implemented Azure Kubernetes Service with auto-scaling, reducing infrastructure costs by 45%."
+      - "Designed event-driven architecture with Service Bus and Event Grid for real-time asset monitoring, improving monitoring performance by 50%."
+      - "Led cross-functional teams of 15+ developers delivering mission-critical water utility operations with 99.99% uptime."
+      - "Established Azure DevOps CI/CD pipelines, reducing deployment cycle time from 2 weeks to 2 days."
+  - name: "Comcast"
+    domain: "Telecommunications Business Applications"
+    technologies: "Azure API Management, .NET Core, Azure Functions, Key Vault, Azure DevOps, Angular"
+    bullets:
+      - "Led design and implementation of a centralized API Management solution for 25+ microservices, cutting API response time by 35%."
+      - "Implemented OAuth 2.0/JWT authentication with Azure Active Directory integration and centralized security policies."
+      - "Migrated 8 legacy systems to cloud-native Azure applications with zero downtime."
+      - "Built CI/CD pipelines for automated API deployment and versioning, improving deployment frequency by 60%."
+      - "Provided technical leadership to 20+ team members and drove architectural standards adopted across the platform."
+  - name: "IntuitiveEMR"
+    domain: "Healthcare"
+    technologies: ".NET Core, Azure Functions, Event Grid, Azure Storage, Logic Apps, SQL Server, FHIR APIs"
+    bullets:
+      - "Architected a HIPAA-compliant serverless data pipeline handling 2M+ healthcare transactions daily."
+      - "Implemented Azure Functions with Event Grid triggers for real-time medical data transformation, reducing processing latency by 70%."
+      - "Designed microservices with fault tolerance and auto-recovery for patient data management, with 24/7 availability."
+      - "Established static code analysis and unit testing standards, achieving 90%+ code coverage."
 
 education:
   - degree: "Master of Computer Applications (MCA)"
     school: "U.P. Technical University, Lucknow"
-    year: "First Class"
+    result: "First Class, 74%"
   - degree: "Bachelor of Computer Applications (BCA)"
     school: "C.C.S. University, Meerut"
-    year: "First Class"
+    result: "First Class, 69%"
 
 certifications: []

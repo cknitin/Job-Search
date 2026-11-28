@@ -20,20 +20,20 @@ search:
   exclude_words: ["junior", "intern", "fresher", "java only"]
   locations: ["India", "Remote", "Noida", "Delhi", "Gurugram", "Gurgaon", "NCR", "Bengaluru", "Hyderabad", "Pune"]
   remote_ok: true
-  max_age_days: 14
+  max_age_days: 30
 
 sources:
   remotive: true                 # free public API, remote jobs
-  adzuna:                        # free key at developer.adzuna.com (supports India: country=in)
-    enabled: false
+  adzuna:                        # main source for India. Free key at developer.adzuna.com;
+    enabled: true                # skipped until ADZUNA_APP_ID and ADZUNA_APP_KEY are set
     app_id_env: ADZUNA_APP_ID
     app_key_env: ADZUNA_APP_KEY
     country: in
-  greenhouse_boards: ["stripe", "gitlab"]   # company slugs from boards.greenhouse.io/<slug>
-  lever_companies: []                       # slugs from jobs.lever.co/<slug>
+  greenhouse_boards: ["mongodb"]            # company slugs from boards.greenhouse.io/<slug>
+  lever_companies: ["egen"]                 # slugs from jobs.lever.co/<slug>
 
 matching:
-  min_keyword_score: 0.25        # cheap pre-filter before spending LLM tokens
+  min_keyword_score: 0.2         # cheap pre-filter before spending LLM tokens
   min_fit_score: 70              # LLM fit score 0-100 required to tailor/apply
   max_jobs_per_run: 25
 

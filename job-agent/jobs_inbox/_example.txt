@@ -1,0 +1,10 @@
+Title: Solution Architect
+Company: Company Name
+Location: Noida, India
+URL: https://link-to-the-job-posting
+---
+Delete this line and paste the FULL job description here.
+
+How to use: copy this file, rename it to something without a leading underscore
+(for example acme.txt), fill in the four lines above the --- line, paste the
+description below it, and run:  python run.py inbox

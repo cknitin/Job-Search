@@ -18,10 +18,14 @@ playwright install chromium
 export ANTHROPIC_API_KEY=sk-ant-...        # console.anthropic.com
 python run.py all --demo                   # offline test, no key needed
 ```
-1. Fill `master_resume.yaml` with **every** real bullet, metric, and certification. More material means better tailoring.
-2. Edit `config.yaml`: contact details, titles, locations, Greenhouse/Lever company slugs, and an Adzuna key if you want it.
-3. `python run.py hunt`, then review `output/<company>_<role>/`.
-4. `python run.py apply`.
+1. Check `master_resume.yaml`: every fact in it can appear in a resume you send.
+2. Put your contact details in `config.local.yaml` (ignored by git). Set titles and locations in `config.yaml`.
+3. Get a free Adzuna key (developer.adzuna.com), the main source for India: set `ADZUNA_APP_ID` and `ADZUNA_APP_KEY`.
+4. `python run.py find` searches without AI. `python run.py hunt` also writes resumes and cover letters.
+5. Save LinkedIn/Naukri jobs into `jobs_inbox/` (see `_example.txt`), then `python run.py inbox`.
+6. Review `output/<company>_<role>_<id>/`, then `python run.py apply`.
+
+Windows step-by-step guide: [../SETUP.md](../SETUP.md).
 
 ## Hosted on GitHub Actions (this repo)
 `.github/workflows/job-agent.yml` runs every day at 09:00 IST, and also from **Actions → job-agent → Run workflow**.
@@ -32,7 +36,7 @@ Add these under **Settings → Secrets and variables → Actions → New reposit
 |---|---|
 | `ANTHROPIC_API_KEY` | from console.anthropic.com (required) |
 | `CANDIDATE_NAME`, `CANDIDATE_EMAIL`, `CANDIDATE_PHONE`, `CANDIDATE_LINKEDIN` | your contact details (kept out of the public code) |
-| `ADZUNA_APP_ID`, `ADZUNA_APP_KEY` | optional, from developer.adzuna.com. Also set `sources.adzuna.enabled: true` |
+| `ADZUNA_APP_ID`, `ADZUNA_APP_KEY` | from developer.adzuna.com (recommended). Used automatically once set |
 
 Each run uploads an **applications-N** artifact with the tailored resumes and cover letters, and commits `data/tracker.csv` so jobs aren't processed twice.
 ⚠️ This repo is public, so the tracker (companies you applied to) and the run artifacts can be seen by others. Make the repo private if that matters to you. Nothing else needs to change.
@@ -42,7 +46,10 @@ Each run uploads an **applications-N** artifact with the tailored resumes and co
 - **Windows Task Scheduler:** `python C:\job-agent\run.py all`
 - **Azure:** containerise it and run as an Azure Container Apps Job on a cron trigger, with the key in Key Vault.
 
-## Why there's no LinkedIn or Naukri bot
+## Web page and Excel tracker
+Double-click `ui.bat` (or run `python ui.py`). Applications are logged by date in `data/job_applications.xlsx`.
+
+## Why there's no LinkedIn, Naukri or Indeed bot
 Their terms forbid automated applying, and accounts get restricted. On those sites the agent still finds and tailors (through Adzuna, which aggregates many Indian listings), and you click Apply with the prepared resume. Easy Apply volume rarely converts for architect roles anyway. Referrals and direct company boards do.
 
 ## Extending
